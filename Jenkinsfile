@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Configure Environment') {
             steps {
-                ansiblePlaybook credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/inventory.yaml', playbook: './ansible/config-playbook.yaml'
+                ansiblePlaybook become: true, credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/inventory.yaml', playbook: './ansible/config-playbook.yaml'
             }
         }
         stage('Build') {
