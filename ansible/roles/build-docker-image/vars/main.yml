@@ -1,4 +1,6 @@
 ---
-path_to_dockerfile: "./Dockerfile"
+path_to_dockerfile: "/home/azureuser/project-repo/"
 full_image_name: "flask-app"
 tag: "v1"
+repo_to_build: "https://gitlab.com/qacdevops/ansible-in-ci-cd-project"
+where_repo_should_be: "/home/azureuser/project-repo"
