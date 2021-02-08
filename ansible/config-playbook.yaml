@@ -2,9 +2,3 @@
   become: true
   roles:
     - install-docker
-
-- hosts: localhost
-  become: true
-  connection: local
-  roles:
-    - install-docker
