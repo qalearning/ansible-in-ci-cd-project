@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                ansiblePlaybook credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/inventory.yaml', playbook: './ansible/build-playbook.yaml'
+                ansiblePlaybook credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/inventory.yaml', playbook: './ansible/build-playbook.yaml', extras: '-e tag=${BUILD_NUMBER}'
             }
         }
         stage('Deploy') {
             steps {
-                ansiblePlaybook credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/inventory.yaml', playbook: './ansible/deploy-playbook.yaml'
+                ansiblePlaybook credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/inventory.yaml', playbook: './ansible/deploy-playbook.yaml', extras: '-e tag=${BUILD_NUMBER}'
             }
         }
     }
