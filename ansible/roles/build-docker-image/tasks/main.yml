@@ -3,6 +3,7 @@
   git:
     repo: "{{ repo_to_build }}"
     dest: "{{ where_repo_should_be }}"
+    update: yes
 - name: Build an image
   docker_image:
     build:
@@ -10,3 +11,4 @@
     name: "{{ full_image_name }}"
     tag: "{{ tag }}"
     source: build
+    force_source: yes
