@@ -1,0 +1,3 @@
+hosts: host-1
+roles:
+  - deploy-docker-container

@@ -1,0 +1,6 @@
+---
+- name: Container present
+  community.general.docker_container:
+    name: mycontainer
+    state: present
+    image: "{{ full_image_name }}"
