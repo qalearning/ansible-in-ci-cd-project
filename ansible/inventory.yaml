@@ -1,1 +1,3 @@
-# The yaml file that will define the inventory
+host-1:
+  hosts:
+    host-1:
