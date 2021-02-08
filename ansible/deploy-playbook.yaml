@@ -1,3 +1,3 @@
-hosts: all
-roles:
-  - deploy-docker-container
+- hosts: all
+  roles:
+    - deploy-docker-container
