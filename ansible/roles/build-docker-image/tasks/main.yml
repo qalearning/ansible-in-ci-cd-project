@@ -3,7 +3,7 @@
   git:
     repo: "{{ repo_to_build }}"
     dest: "{{ where_repo_should_be }}"
-    update: yes
+    update: no
 - name: Build an image
   docker_image:
     build:
