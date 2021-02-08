@@ -7,7 +7,7 @@
 - name: Build an image
   docker_image:
     build:
-      path: "{{ path_to_dockerfile }}"
+      path: "{{ path_to_project }}"
     name: "{{ full_image_name }}"
     tag: "{{ tag }}"
     source: build
