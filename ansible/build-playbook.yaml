@@ -1,5 +1,4 @@
-- hosts: localhost
-  become: yes
+- hosts: all
   roles:
   - role: build-docker-image
     vars: 
