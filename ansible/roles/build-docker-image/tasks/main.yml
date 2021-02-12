@@ -1,5 +1,5 @@
 ---
-- name: clone repo
+- name: copy repo
   copy:
     src: /home/azureuser/ansible-in-ci-cd-project/
     dest: "{{ path_to_project }}"

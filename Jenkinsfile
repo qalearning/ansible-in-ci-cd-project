@@ -1,14 +1,16 @@
 pipeline {
     agent any
     stages {
+        /*
+        stage('Set Up Environment') {
+            steps {
+               sh "terraform apply -input false"
+            }
+        } */
         stage('Configure Environment') {
             steps {
-                ansiblePlaybook become: true, credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/local-and-host-inv.yaml', playbook: './ansible/config-playbook.yaml'
-            }
-        }
-        stage('Build') {
-            steps {
-                ansiblePlaybook credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/host-inv.yaml', playbook: './ansible/build-playbook.yaml', extras: '-e tag=${BUILD_NUMBER}'
+                ansiblePlaybook become: true, credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/host-inv.yaml', playbook: './ansible/config-playbook.yaml'
+                ansiblePlaybook become: true, credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/host-inv.yaml', playbook: './ansible/build-playbook.yaml'
             }
         }
         stage('Deploy') {
