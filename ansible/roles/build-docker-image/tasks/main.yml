@@ -1,7 +1,7 @@
 ---
 - name: copy repo
   copy:
-    src: /home/azureuser/ansible-in-ci-cd-project/
+    src: /home/ubuntu/ansible-in-ci-cd-project/
     dest: "{{ path_to_project }}"
     directory_mode:
 - name: Build an image

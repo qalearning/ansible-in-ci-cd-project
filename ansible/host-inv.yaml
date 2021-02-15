@@ -1,5 +1,5 @@
 all:
   hosts:
-    host-2:
+    {{ host-1 }}:
   vars:
     ansible_python_interpreter: /usr/bin/python3
