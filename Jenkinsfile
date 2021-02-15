@@ -10,8 +10,7 @@ pipeline {
         stage('Configure Environment') {
             steps {
                 sh "terraform output -raw aws-instance-ip > ip_address"
-                def output=readFile('ip_address').trim()
-                sh "sed -i 's/{{ host-1 }}/${output}/g' ./ansible/host-inv.yaml"
+                sh "sed -i 's/{{ host-1 }}/${readFile 'ip_address'}/g' ./ansible/host-inv.yaml"
                 sh "cat ./ansible/host-inv.yaml"
                 ansiblePlaybook become: true, credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/host-inv.yaml', playbook: './ansible/config-playbook.yaml'
                 ansiblePlaybook become: true, credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/host-inv.yaml', playbook: './ansible/build-playbook.yaml', extras: '-e tag=${BUILD_NUMBER}'
