@@ -4,7 +4,7 @@ pipeline {
         stage('Set Up Environment') {
             steps {
                sh "terraform init Terraform/"
-               sh "terraform apply Terraform/ -input false"
+               sh "terraform apply Terraform/"
             }
         }
         stage('Configure Environment') {
