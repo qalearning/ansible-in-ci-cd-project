@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Set Up Environment') {
             steps {
+               sh "terraform init"
                sh "terraform apply Terraform/ -input false"
             }
         }
