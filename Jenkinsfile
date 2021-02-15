@@ -1,12 +1,11 @@
 pipeline {
     agent any
     stages {
-        /*
         stage('Set Up Environment') {
             steps {
                sh "terraform apply -input false"
             }
-        } */
+        }
         stage('Configure Environment') {
             steps {
                 ansiblePlaybook become: true, credentialsId: 'key-1', disableHostKeyChecking: true, installation: 'ansible-plugin', inventory: './ansible/host-inv.yaml', playbook: './ansible/config-playbook.yaml'
