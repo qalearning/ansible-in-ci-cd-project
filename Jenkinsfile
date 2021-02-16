@@ -3,8 +3,11 @@ pipeline {
     stages {
         stage('Set Up Environment') {
             steps {
-               sh "terraform init Terraform/"
-               sh "terraform apply -auto-approve Terraform/"
+                withCredentials([usernamePassword(credentialsId: 'aws-credentials', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable:  'AWS_ACCESS_KEY_ID')]) {
+                    sh "terraform init Terraform/"
+                    sh "terraform plan"
+                    sh "terraform apply -auto-approve Terraform/"
+                }
             }
         }
         stage('Configure Environment') {
