@@ -5,7 +5,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-credentials', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable:  'AWS_ACCESS_KEY_ID')]) {
                     sh "terraform init Terraform/"
-                    sh "terraform plan"
+                    sh "terraform plan Terraform/"
                     sh "terraform apply -auto-approve Terraform/"
                 }
             }
