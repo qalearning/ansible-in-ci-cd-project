@@ -18,7 +18,7 @@ variable "subnet_id" {
 
 variable "name" {
   description = "Name of EC2 Instance"
-  default     = "QA_Final_Project_Manager_Node"
+  default     = "host-1"
 }
 
 variable "enable_public_ip" {
