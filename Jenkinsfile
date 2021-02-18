@@ -7,7 +7,7 @@ pipeline {
                     sh "terraform init Terraform/"
                     sh "terraform plan Terraform/"
                     sh "terraform apply -auto-approve Terraform/"
-                    sh "sleep 10"
+                    sh "sleep 30"
                 }
             }
         }
