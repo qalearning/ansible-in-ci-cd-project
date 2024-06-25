@@ -4,9 +4,9 @@ pipeline {
         stage('Set Up Environment') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-credentials', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable:  'AWS_ACCESS_KEY_ID')]) {
-                    sh "terraform init Terraform/"
-                    sh "terraform plan Terraform/"
-                    sh "terraform apply -auto-approve Terraform/"
+                    sh "terraform -chdir=Terraform/ init"
+                    sh "terraform -chdir=Terraform/ plan"
+                    sh "terraform -chdir=Terraform/ apply -auto-approve"
                     sh "sleep 30"
                 }
             }
