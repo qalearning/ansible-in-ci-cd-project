@@ -7,6 +7,7 @@
     dest: "{{ path_to_project }}"
     remote_src: true
     directory_mode:
+  delegate_to: localhost
 - name: Build an image
   docker_image:
     build:
