@@ -1,6 +1,5 @@
 ---
 - name: copy repo
-  delegate_to: localhost
   copy:
     src: /home/ubuntu/ansible-in-ci-cd-project/
     dest: "{{ path_to_project }}"
