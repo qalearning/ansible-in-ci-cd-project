@@ -1,13 +1,9 @@
 ---
 - name: copy repo
-  become: true
-  become_user: root
   copy:
     src: /home/ubuntu/ansible-in-ci-cd-project/
     dest: "{{ path_to_project }}"
-    remote_src: true
     directory_mode:
-  delegate_to: localhost
 - name: Build an image
   docker_image:
     build:
